@@ -1,16 +1,19 @@
 import "./SingleContent.css";
 import { img_300 } from "../../config/config";
+import ContentModal from "../contentModal/Modal";
 
-const SingleContent = ({ item, title, date, poster }) => {
+const SingleContent = ({ item, title, date, poster, id }) => {
   return (
-    <div className="parent">
-      <div className="media">
-        <img className="poster" src={`${img_300}/${poster}`} alt={title} />
-        <p className="title">{title}</p>
-        <span className="subTitle">Movie</span>
-        <span className="date">{date}</span>
+    <ContentModal id={id}>
+      <div className="parent">
+        <div className="media">
+          <img className="poster" src={`${img_300}/${poster}`} alt={title} />
+          <p className="title">{title}</p>
+          <span className="subTitle">Movie</span>
+          <span className="date">{date}</span>
+        </div>
       </div>
-    </div>
+    </ContentModal>
   );
 };
 

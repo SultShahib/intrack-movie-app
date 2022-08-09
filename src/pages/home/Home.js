@@ -5,6 +5,7 @@ import axios from "axios";
 import Genres from "../../components/genres/Genres";
 import "./Home.css";
 import useGenres from "../../hooks/useGenre";
+import TransitionsModal from "../../components/contentModal/Modal";
 
 export const API_KEY = "5e83d3463b244867eab265ed5e141d03";
 
@@ -13,6 +14,7 @@ const Home = () => {
   const [page, setPage] = useState(1);
   const [selectedGenre, setSelectedGenre] = useState([]);
   const [genres, setGenre] = useState([]);
+  const [numOfPages, setNumOfPages] = useState();
   const genreForUrl = useGenres(selectedGenre);
 
   const getMovies = async (API) => {
@@ -21,8 +23,8 @@ const Home = () => {
         `https://api.themoviedb.org/3/discover/movie?api_key=${API}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreForUrl}`
       );
 
-      // console.log(data);
       setMovieData(data.results);
+      setNumOfPages(data.total_pages);
     } catch (e) {
       throw new Error(e.message);
     }
@@ -32,8 +34,6 @@ const Home = () => {
     getMovies(API_KEY);
     // eslint-disable-next-line
   }, [page, selectedGenre]);
-
-  console.log(movieData);
 
   return (
     <>
@@ -45,13 +45,13 @@ const Home = () => {
         setSelectedGenre={setSelectedGenre}
         setPage={setPage}
       />
-      <div className="popular">
+      <div className="movies">
         {movieData &&
           movieData.map((item) => {
-            // console.log(item);3
             return (
               <SingleContent
                 key={item.id}
+                id={item.id}
                 item={item}
                 title={item.original_title}
                 date={item.release_date}
@@ -60,7 +60,11 @@ const Home = () => {
             );
           })}
       </div>
-      <CustomPagination setPage={setPage} />
+      <CustomPagination
+        numOfPages={numOfPages > 20 ? 20 : numOfPages}
+        setNumOfPages={setNumOfPages}
+        setPage={setPage}
+      />
     </>
   );
 };

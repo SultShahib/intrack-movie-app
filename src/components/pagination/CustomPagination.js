@@ -2,7 +2,11 @@ import * as React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-export default function CustomPagination({ setPage }) {
+export default function CustomPagination({
+  setPage,
+  numOfPages,
+  setNumOfPages,
+}) {
   const handlePageChange = (page) => {
     setPage(page);
     window.scroll(0, 0);
@@ -20,7 +24,7 @@ export default function CustomPagination({ setPage }) {
     >
       <Stack spacing={2}>
         <Pagination
-          count={10}
+          count={numOfPages}
           onChange={(e) => handlePageChange(Number(e.target.innerText))}
           hideNextButton
           hidePrevButton
