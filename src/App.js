@@ -7,6 +7,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Search from "./pages/search/Search";
 import Home from "./pages/home/Home";
 
+// Renders the Home and Search pages
+
 function App() {
   return (
     <Router>
@@ -14,6 +16,7 @@ function App() {
       <div className="App">
         <Container>
           <Routes>
+            {/* Default path = '/', will navigate to '/HOME' page which renders <Home /> component (default) */}
             <Route path="/" element={<Navigate to="/HOME" replace />} />
             <Route path="/HOME" element={<Home />} />
             <Route path="/search" element={<Search />} />

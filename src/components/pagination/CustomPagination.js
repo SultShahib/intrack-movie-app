@@ -2,11 +2,9 @@ import * as React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-export default function CustomPagination({
-  setPage,
-  numOfPages,
-  setNumOfPages,
-}) {
+// CustomPagination renders the number of pages availible depending on the API call
+
+export default function CustomPagination({ setPage, numOfPages }) {
   const handlePageChange = (page) => {
     setPage(page);
     window.scroll(0, 0);

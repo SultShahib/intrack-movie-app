@@ -7,6 +7,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+// SimpleBottomNavigation renders the movie icon page and search page at the bottom
+
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const navigate = useNavigate();

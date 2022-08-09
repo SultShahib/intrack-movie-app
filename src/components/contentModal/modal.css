@@ -3,13 +3,15 @@
 .ContentModal__landscape {
   object-fit: contain;
   border-radius: 10px;
+  height: 300px;
+  width: 300px;
 }
 
-.ContentModal__portrait {
+/* .ContentModal__portrait {
   display: none;
   object-fit: contain;
   border-radius: 10px;
-}
+} */
 
 .tagline {
   padding-bottom: 10px;
@@ -45,8 +47,8 @@
   height: 12%;
   font-size: 5vw;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .ContentModal__description {

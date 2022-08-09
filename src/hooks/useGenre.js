@@ -1,3 +1,7 @@
+// Custom hook
+// Used to get selectedGenre's id to make an API call
+// Will be used in Home component to fetch movies with specific genre ID
+
 const useGenres = (selectedGenres) => {
   if (selectedGenres.length < 1) {
     return "";
