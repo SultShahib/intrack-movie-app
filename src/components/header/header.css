@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  cursor: pointer;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 255, 255, 0.548);
+  font-size: 5vh;
+  padding-bottom: 15px;
+  font-weight: 800;
+  text-decoration: underline;
+  color: rgb(0, 0, 0);
+}

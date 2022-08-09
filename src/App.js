@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "@mui/system";
+import "./App.css";
+import Header from "./components/header/header";
+import SimpleBottomNavigation from "./components/navigation/navigation";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Search from "./pages/search/Search";
+import Home from "./pages/home/Home";
+
+// Renders the Home and Search pages
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <div className="App">
+        <Container>
+          <Routes>
+            {/* Default path = '/', will navigate to '/HOME' page which renders <Home /> component (default) */}
+            <Route path="/" element={<Navigate to="/HOME" replace />} />
+            <Route path="/HOME" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+          </Routes>
+        </Container>
+      </div>
+
+      <SimpleBottomNavigation />
+    </Router>
   );
 }
 
